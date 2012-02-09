@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 
 static void usage(const char *name, int status)
 {
-   fprintf(stderr, "%s [-i if_1] [-i if_2] -o file URL\n", name);
+   fprintf(stderr, "%s [-i if_1] [-i if_2] [-s size] [-S size_force] -o file URL\n", name);
    exit(status);
 }
 
@@ -133,9 +133,6 @@ static int curl_operation(void)
       CURLM *multi_handle;
 
       multi_handle = curl_multi_init();
-      /* rewrite here! */
-      if( If_Count * range < Content_Len )
-         range++;
       strcpy(download_file, Output_File_Name);
       suffix_pos = strlen(Output_File_Name);
 
